@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing page</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        background: #f0f0f0;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #333;
+        padding: 1rem;
+      }
+
+      .social-icons {
+        display: flex;
+        align-items: center;
+      }
+
+      .social-icons a {
+        color: #fff;
+        margin-right: 1rem;
+        font-size: 1.5rem;
+        transition: color 0.3s;
+      }
+
+      .social-icons a:hover {
+        color: dodgerblue;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-links li {
+        margin: 0 1rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        transition: background 0.3s, color 0.3s;
+      }
+
+      .nav-links a:hover {
+        background: dodgerblue;
+        color: #fff;
+        border-radius: 4px;
+      }
+
+      .buy-now {
+        background: #ffeb3b;
+        color: #333;
+        padding: 0.5rem 1rem;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: background 0.3s, color 0.3s;
+      }
+
+      .buy-now:hover {
+        background: #fff176;
+      }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .hamburger .line {
+        width: 25px;
+        height: 3px;
+        background: #fff;
+        margin: 4px 0;
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 60px;
+          right: 0;
+          background: #333;
+          flex-direction: column;
+          width: 100%;
+          text-align: center;
+        }
+
+        .nav-links li {
+          margin: 1rem 0;
+        }
+
+        .hamburger {
+          display: flex;
+        }
+
+        .nav-links.show {
+          display: flex;
+        }
+      }
+
+      .second-navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #555;
+        padding: 0.5rem 1rem;
+        margin-top: 0.5rem;
+      }
+
+      .logo {
+        color: #fff;
+        font-size: 1.5rem;
+      }
+
+      .search-bar {
+        display: flex;
+        align-items: center;
+      }
+
+      .search-bar input {
+        padding: 0.5rem;
+        border: none;
+        border-radius: 4px;
+        margin-right: 0.5rem;
+      }
+
+      .search-bar button {
+        padding: 0.5rem 1rem;
+        border: none;
+        background: dodgerblue;
+        color: #fff;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .search-bar button:hover {
+        background: deepskyblue;
+      }
+
+      .half-page-bg {
+        height: 50vh;
+        background-image: url("https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .half-page-bg h1 {
+        color: whitesmoke;
+        padding: 130px 580px 0px 150px;
+        font-size: 35px;
+        font-weight: 50px;
+        opacity: 0.6;
+      }
+
+      .feature-section {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 2rem;
+        background: #333;
+        color: white;
+      }
+
+      .feature {
+        text-align: center;
+        max-width: 200px;
+      }
+
+      .feature i {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .feature h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .feature p {
+        font-size: 1rem;
+      }
+
+      .about-us {
+        padding: 20px;
+      }
+
+      .container {
+        display: flex;
+        align-items: flex-start;
+        width: 100%;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .about-us {
+        width: 50%;
+        padding: 20px;
+      }
+
+      .about-us h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+
+      .about-us h3 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      .about-us p {
+        width: 100%;
+        text-align: left;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+
+      .image-section {
+        width: 50%;
+        padding: 20px;
+      }
+
+      .image-section img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 20px;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #f8f8f8;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo img {
+        margin-right: 10px;
+      }
+
+      .logo h1 {
+        font-size: 50px;
+        margin: 0;
+      }
+
+      .read-more {
+        display: flex;
+        align-items: center;
+      }
+
+      .read-more button {
+        padding: 0.5rem 1rem;
+        border: none;
+        background: dodgerblue;
+        color: #fff;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .read-more button:hover {
+        background: deepskyblue;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        font-family: sans-serif;
+      }
+
+      .container {
+        display: flex;
+        justify-content: first baseline;
+        min-height: 100vh;
+      }
+
+      .card-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      .card {
+        width: 300px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .card-image {
+        height: 200px;
+        overflow: hidden;
+      }
+
+      .card-image img {
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s ease;
+      }
+
+      .card-image img:hover {
+        transform: scale(1.1);
+      }
+
+      .card-content {
+        padding: 20px;
+      }
+
+      .card-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .card-description {
+        font-size: 1rem;
+        color: #666;
+      }
+
+      .button {
+        background-color: #f44336;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .button:hover {
+        background-color: #d32f2f;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="social-icons">
+        <a href="https://twitter.com" target="_blank"
+          ><i class="fab fa-twitter"></i
+        ></a>
+        <a href="https://facebook.com" target="_blank"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
+        <a href="https://instagram.com" target="_blank"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a href="https://youtube.com" target="_blank"
+          ><i class="fab fa-youtube"></i
+        ></a>
+        <a href="https://pinterest.com" target="_blank"
+          ><i class="fab fa-pinterest"></i
+        ></a>
+        <a href="https://linkedin.com" target="_blank"
+          ><i class="fab fa-linkedin-in"></i
+        ></a>
+        <a href="mailto:someone@example.com"><i class="fas fa-envelope"></i></a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#page">Page</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#buynow" class="buy-now">Buy Now</a></li>
+      </ul>
+      <div class="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </nav>
+
+    <nav class="second-navbar">
+      <div class="logo">
+        <img
+          src="https://cdn-icons-png.freepik.com/512/1458/1458522.png"
+          alt="landing page logo"
+          height="40px"
+        />
+        <h1><b>LANDING PAGE</b></h1>
+      </div>
+
+      <div class="search-bar">
+        <input type="text" placeholder="Search..." />
+        <button type="button">Search</button>
+      </div>
+    </nav>
+
+    <div class="half-page-bg">
+      <h1>CREATIVE DIGITAL AGENCY</h1>
+    </div>
+
+    <section class="feature-section">
+      <div class="feature">
+        <i class="fas fa-rocket"></i>
+        <h3>Launch Business</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum,
+          explicabo.
+        </p>
+      </div>
+
+      <div class="feature">
+        <i class="fas fa-headset"></i>
+        <h3>Online Support Team</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum,
+          explicabo.
+        </p>
+      </div>
+
+      <div class="feature">
+        <i class="fas fa-clock"></i>
+        <h3>Time Management</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum,
+          explicabo.
+        </p>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="about-us">
+        <h1>ABOUT US</h1>
+        <h3>
+          <b
+            >15 years, we passionate about achieving better results for our
+            clients</b
+          >
+        </h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe
+          recusandae iure corrupti distinctio deleniti dignissimos quidem
+          voluptates non reiciendis officia. Incidunt asperiores expedita
+          officia fugiat iste ut natus dolorum explicabo! Lorem ipsum dolor sit
+          amet consectetur, adipisicing elit. Saepe recusandae iure corrupti
+          distinctio deleniti dignissimos quidem voluptates non reiciendis
+          officia. Incidunt asperiores expedita officia fugiat iste ut natus
+          dolorum explicabo! Lorem ipsum dolor sit amet consectetur, adipisicing
+          elit. Saepe recusandae iure corrupti distinctio deleniti dignissimos
+          quidem voluptates non reiciendis officia. Incidunt asperiores expedita
+          officia fugiat iste ut natus dolorum explicabo!
+        </p>
+        <br />
+        <div class="read-more">
+          <button type="button"><h2>Read More</h2></button>
+        </div>
+      </div>
+      <div class="image-section">
+        <img
+          src="https://www.shutterstock.com/image-photo/latin-hispanic-mature-adult-professional-600nw-2427207667.jpg"
+          alt="standing lady"
+        />
+      </div>
+    </div>
+
+    <div class="container">
+      <h1>OUR SERVICES</h1>
+      <div class="card-container">
+        <div class="card">
+          <div class="card-image">
+            <img
+              src="https://t4.ftcdn.net/jpg/02/02/16/99/360_F_202169920_lfalUGPVRdkIIwnQWfYJEiM2RERM7fki.jpg"
+              alt="User Experience"
+            />
+          </div>
+          <div class="card-content">
+            <h2 class="card-title">USER EXPERIENCE</h2>
+            <p class="card-description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Voluptatum, explicabo.
+            </p>
+            <button class="button">Learn More</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image">
+            <img
+              src="https://images.pexels.com/photos/3184639/pexels-photo-3184639.jpeg"
+              alt="Creative Design"
+            />
+          </div>
+          <div class="card-content">
+            <h2 class="card-title">CREATIVE DESIGN</h2>
+            <p class="card-description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Voluptatum, explicabo.
+            </p>
+            <button class="button">Learn More</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image">
+            <img
+              src="https://media.istockphoto.com/id/1453843862/photo/business-meeting.jpg?s=612x612&w=0&k=20&c=4k9H7agmpn92B7bkUywvkK5Ckwm9Y8f8QrGs4DRDWpE="
+              alt="Retina Ready"
+            />
+          </div>
+          <div class="card-content">
+            <h2 class="card-title">RETINA READY</h2>
+            <p class="card-description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Voluptatum, explicabo.
+            </p>
+            <button class="button">Learn More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".nav-links");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+      });
+    </script>
+  </body>
+</html>
